@@ -19,7 +19,7 @@ public :
     // This is a pointer and meaning of this is "next is a pointer that can store address of a Node.
     // indirectly Node is like data type."
 
-    Node(int value){
+    Node(int value){    // constructor
         data = value;        // assigning the value to the data.
         next = NULL;
     }

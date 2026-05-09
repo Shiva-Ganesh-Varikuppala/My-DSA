@@ -6,11 +6,13 @@ It explores nodes level by level and distance by distance: it visits nearest(bre
 Real life example: Imaging we throw a stone in water: waves spread first nearby area, then farther area, then more farther
 BFS works exactly like this.
 Example Graph:
-0
-/   \
-1     2
-/ \     \
-3   4     5
+
+    0
+   /  \
+  1    2
+ / \     \
+ 3   4     5
+
 - Start BFS from node '0'
 - Level 0: 0
 - Level 1: Neighbours of '0' - (1, 2)
