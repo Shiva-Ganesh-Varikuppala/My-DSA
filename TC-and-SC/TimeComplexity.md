@@ -195,7 +195,9 @@ Examples:
 
 # Binary Search Complexity
 
-genui{"math_block_widget_always_prefetch_v2":{"content":"T(n)=\log_2 n"}}
+```text
+T(n) = log₂ n
+```
 
 Each step halves search space.
 
@@ -225,7 +227,9 @@ for(int i = 0; i < n; i++) {
 
 Complexity:
 
-genui{"math_block_widget_always_prefetch_v2":{"content":"n \times n = n^2"}}
+```text
+n × n = n²
+```
 
 ---
 
@@ -388,7 +392,9 @@ for(int i = 1; i * i <= n; i++)
 
 Complexity:
 
-genui{"math_block_widget_always_prefetch_v2":{"content":"O(\sqrt{n})"}}
+```text
+O(√n)
+```
 
 ---
 
@@ -435,7 +441,9 @@ Used in divide and conquer.
 
 ## Merge Sort
 
-genui{"math_block_widget_always_prefetch_v2":{"content":"T(n)=2T\left(\frac{n}{2}\right)+n"}}
+```text
+T(n) = 2T(n/2) + n
+```
 
 Complexity:
 
@@ -451,7 +459,9 @@ Used for recurrence relations.
 
 General form:
 
-genui{"math_block_widget_always_prefetch_v2":{"content":"T(n)=aT\left(\frac{n}{b}\right)+f(n)"}}
+```text
+T(n) = aT(n/b) + f(n)
+```
 
 Where:
 
@@ -691,7 +701,9 @@ Interviewers expect:
 
 # Complexity Ranking (Best to Worst)
 
-genui{"math_block_widget_always_prefetch_v2":{"content":"O(1) < O(\log n) < O(n) < O(n\log n) < O(n^2) < O(n^3) < O(2^n) < O(n!)"}}
+```text
+O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(n³) < O(2ⁿ) < O(n!)
+```
 
 ---
 
