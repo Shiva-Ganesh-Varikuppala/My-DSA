@@ -1,5 +1,10 @@
 # C++ <algorithm> Library – Important Algorithms with Description
 
+```cpp
+#include <algorithm>
+#include <numeric>
+```
+
 ---
 
 ## 1. Non‑Modifying Sequence Operations  
@@ -126,7 +131,14 @@
 
 ---
 
-## 9. Permutation Algorithms
+## 9. Merge Operations
+
+- `merge()` : Merges two sorted ranges.  
+- `inplace_merge()` : Merges sorted ranges in place.  
+
+---
+
+## 10. Permutation Algorithms
 
 - `next_permutation()` : Generates next lexicographical permutation.  
 - `prev_permutation()` : Generates previous permutation.  
@@ -134,14 +146,67 @@
 
 ---
 
-## 10. Lexicographical Comparison
+## 11. Lexicographical Comparison
 
 - `lexicographical_compare()` : Compares two sequences lexicographically.  
 - `lexicographical_compare_three_way()` : Three‑way comparison of sequences.  
 
 ---
 
-## Note
+## 12. Numeric Algorithms  
+*These algorithms come from `<numeric>` and are heavily used in DSA and Competitive Programming.*
+
+- `accumulate()` : Computes sum of elements in a range.  
+- `reduce()` : Similar to accumulate but optimized for parallelism.  
+- `inner_product()` : Computes inner product of two ranges.  
+- `partial_sum()` : Computes prefix sums.  
+- `adjacent_difference()` : Computes differences between adjacent elements.  
+- `iota()` : Fills range with sequentially increasing values.  
+- `gcd()` : Computes Greatest Common Divisor.  
+- `lcm()` : Computes Least Common Multiple.  
+
+---
+
+## 13. Most Important Algorithms for DSA
+
+- `sort()`  
+- `binary_search()`  
+- `lower_bound()`  
+- `upper_bound()`  
+- `reverse()`  
+- `next_permutation()`  
+- `accumulate()`  
+- `max_element()`  
+- `min_element()`  
+- `count()`  
+- `find()`  
+- `gcd()`  
+- `iota()`  
+
+---
+
+## 14. Complexity Notes
+
+| Algorithm | Complexity |
+|---|---|
+| `sort()` | O(n log n) |
+| `stable_sort()` | O(n log n) |
+| `binary_search()` | O(log n) |
+| `lower_bound()` | O(log n) |
+| `upper_bound()` | O(log n) |
+| `reverse()` | O(n) |
+| `count()` | O(n) |
+| `find()` | O(n) |
+| `accumulate()` | O(n) |
+| `nth_element()` | O(n) average |
+| `next_permutation()` | O(n) |
+| `make_heap()` | O(n) |
+| `push_heap()` | O(log n) |
+| `pop_heap()` | O(log n) |
+
+---
+
+## 15. Note
 
 These algorithms work with iterators like:
 
