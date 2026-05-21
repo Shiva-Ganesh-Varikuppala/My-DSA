@@ -1,6 +1,3 @@
-// Daily commit: 2026-04-03
-
-
 C++ <algorithm> Library – Important Algorithms with Description
 
 --------------------------------------------------
