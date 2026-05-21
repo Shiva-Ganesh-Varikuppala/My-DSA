@@ -98,6 +98,8 @@ O(n²)
 ---
 
 ## 1. Ignore Constants
+We ignore constants in Time and space complexities because complexity analysis focuses on: Growth Rate not exact execution time 
+or exact memory.
 
 ```cpp
 for(int i = 0; i < 2*n; i++) {}
