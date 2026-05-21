@@ -82,4 +82,39 @@ void bfs(int start, vector<vector<int>>& graph){
 
     q.push(start);
     visited[start] = true;
+
+    cout << "BFS Traversal: ";
+
+    while(!q.empty()){
+        int node = q.front();
+        q.pop();
+
+        cout << node << " ";
+
+        for(int neighbour : graph[node]){
+            if(!visited[neighbour]){
+                visited[neighbour] = true;
+                q.push(neighbour);
+            }
+        }
+    }
+
+    cout << endl;
+}
+
+int main(){
+    int n = 6;
+
+    vector<vector<int>> graph(n);
+
+    graph[0] = {1, 2};
+    graph[1] = {0, 3, 4};
+    graph[2] = {0, 5};
+    graph[3] = {1};
+    graph[4] = {1};
+    graph[5] = {2};
+
+    bfs(0, graph);
+
+    return 0;
 }

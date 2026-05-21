@@ -32,7 +32,7 @@ private:
 public:
     // constructor
     List(){
-        head = tail = NULL;  // automatically intializes head to nullptr when an obj is created to not to contain garbage values in it
+        head = tail = NULL;  // automatically intializes head to nullptr when an obj is created and make sure not to contain garbage values in it
     }
 
     void push_front(int val ){
