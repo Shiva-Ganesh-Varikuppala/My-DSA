@@ -15,7 +15,8 @@ int main(){
     }
 
     // inserting value
-    arr[idx] = val;     sz++;
+    arr[idx] = val;
+    sz++;
 
     // printing array
     for(int i = 0; i < sz; i++){
