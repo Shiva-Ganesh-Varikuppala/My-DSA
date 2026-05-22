@@ -5,9 +5,9 @@ using namespace std;
 // ALL SORTING ALGORITHMS
 
 // 1. bubble sort
-void bubbleSort(int arr[], int n) {
-  for (int i = 0; i < n - 1; i++) {
-    for (int j = 0; j < n - 1 - i; j++) {
+void bubbleSort(int arr[], int sz) {
+  for (int i = 0; i < sz - 1; i++) {
+    for (int j = 0; j < sz - 1 - i; j++) {
       if (arr[j] > arr[j + 1]) {
         swap(arr[j], arr[j + 1]);
       }
@@ -19,10 +19,10 @@ void bubbleSort(int arr[], int n) {
 
 
 // 2. selection sort
-void selectionSort(int arr[], int n){
-    for(int i = 0; i < n - 1; i++){
+void selectionSort(int arr[], int sz){
+    for(int i = 0; i < sz - 1; i++){
       int minIdx = i;
-      for(int j = i + 1; j < n; j++){
+      for(int j = i + 1; j < sz; j++){
         if(arr[j] < arr[minIdx]){
           minIdx = j;
         }
@@ -33,8 +33,8 @@ void selectionSort(int arr[], int n){
 
 
 // insertion sort
-void insertionSort(int arr[], int n){
-    for(int i = 1; i < n; i++){
+void insertionSort(int arr[], int sz){
+    for(int i = 1; i < sz; i++){
       int key = arr[i];
       int j = i - 1;
 
@@ -49,25 +49,25 @@ void insertionSort(int arr[], int n){
 int main(void) {
   // for bubble sort
   int arr[] = {3, 2, 1, 7, 6};
-  int n = 5;
+  int sz = 5;
 
-  bubbleSort(arr, n);
+  bubbleSort(arr, sz);
 
-  for (int n : arr) {
-    cout << n << " ";
+  for (int sz : arr) {
+    cout << sz << " ";
   }
   cout << endl;
   
-  selectionSort(arr, n);
+  selectionSort(arr, sz);
   
-  for (int n : arr) {
-    cout << n << " ";
+  for (int sz : arr) {
+    cout << sz << " ";
   }
   cout << endl;
   
-  insertionSort(arr, n);
-  for (int n : arr) {
-    cout << n << " ";
+  insertionSort(arr, sz);
+  for (int sz : arr) {
+    cout << sz << " ";
   }
   cout << endl;
   return 0;
