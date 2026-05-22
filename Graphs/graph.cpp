@@ -85,25 +85,25 @@ int main(void) {
 
   int n = 4;
 
-  int adj1[4][4] = {0};
+  int matrix[4][4] = {0};
 
   // edges
-  adj1[0][1] = 1;
-  adj1[1][0] = 1;
+  matrix[0][1] = 1;
+  matrix[1][0] = 1;
 
-  adj1[0][2] = 1;
-  adj1[2][0] = 1;
+  matrix[0][2] = 1;
+  matrix[2][0] = 1;
 
-  adj1[1][3] = 1;
-  adj1[3][1] = 1;
+  matrix[1][3] = 1;
+  matrix[3][1] = 1;
 
-  adj1[2][3] = 1;
-  adj1[3][2] = 1;
+  matrix[2][3] = 1;
+  matrix[3][2] = 1;
 
   // print matrix
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
-      cout << adj1[i][j] << " ";
+      cout << matrix[i][j] << " ";
     }
     cout << endl;
   }
@@ -120,27 +120,27 @@ int main(void) {
 
   int m = 4;
 
-  vector<vector<int>> adj2(m);
+  vector<vector<int>> List(m);
 
   // add edges
-  adj2[0].push_back(1);
-  adj2[1].push_back(0);
+  List[0].push_back(1);
+  List[1].push_back(0);
 
-  adj2[0].push_back(2);
-  adj2[2].push_back(0);
+  List[0].push_back(2);
+  List[2].push_back(0);
 
-  adj2[1].push_back(3);
-  adj2[3].push_back(1);
+  List[1].push_back(3);
+  List[3].push_back(1);
 
-  adj2[2].push_back(3);
-  adj2[3].push_back(2);
+  List[2].push_back(3);
+  List[3].push_back(2);
 
   // print graph
   for (int i = 0; i < n; i++) {
 
     cout << i << " : ";
 
-    for (int neighbor : adj2[i]) {
+    for (int neighbor : List[i]) {
 
       cout << neighbor << " ";
     }
