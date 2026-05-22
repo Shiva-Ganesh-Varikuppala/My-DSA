@@ -1,17 +1,28 @@
 #include<iostream>
 using namespace std;
 
+
 int main(void){
 
-    int arr[] = {1, 2, 3, 4, 5,  6, 7, 8, 9};
-    int target = 9;
-    int sz = sizeof(arr) / sizeof(arr[0]);
+    int arr[] = {5, 1, 4, 2,  8};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    for(int i = 0; i < sz; i++){
-        if(arr[i] == target){
-            cout << i << endl;
+    for(int i = 0; i < n - 1; i++){
+        bool swapped = false;
+        for(int j = 0; j < n-i-1; i++){
+            if(arr[j] > arr[j+1]){
+                swap(arr[j], arr[j+1]);
+                swapped = true;
+            }
+        }
+        if(swapped == false){
+            break;
         }
     }
-    cout << "not found\n";
+
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }
+
     return 0;
 }
