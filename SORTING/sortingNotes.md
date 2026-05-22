@@ -135,6 +135,7 @@ Array becomes sorted.
 3. Repeat for all elements.
 4. After each pass, largest element reaches correct position.
 
+- The number of passes is equal to "size of array(n) - 1"
 ---
 
 ## Bubble Sort Code
@@ -172,6 +173,9 @@ int main() {
     return 0;
 }
 ```
+
+### Why (n - i - 1) in the second loop?
+- last element becomes sorted, so no need to compare it again.
 
 ---
 
@@ -240,6 +244,8 @@ Continue until sorted.
 2. Swap with current index.
 3. Repeat for remaining array.
 
+- The number of passes is equal to "size of array(n) - 1"
+
 ---
 
 ## Selection Sort Code
@@ -274,6 +280,7 @@ int main() {
     return 0;
 }
 ```
+- Remember the word "SELECTION" in the selection sort and take it as a hint of selecting the smallest element in the unsorted part.
 
 ---
 

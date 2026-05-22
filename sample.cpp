@@ -1,28 +1,72 @@
 #include<iostream>
+#include <utility>
 using namespace std;
 
+// bubble sort
+
+void bubbleSort(int arr[], int sz) {
+  for (int i = 0; i < sz - 1; i++) {
+    for (int j = 0; j < sz - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        swap(arr[j], arr[j + 1]);
+      }
+    }
+  }
+}
+
+
+// selection sort
+                
+void selectionSort(int arr[], int sz){
+    for(int i = 0; i < sz-1; i++){
+         int minIdx = i;
+         for(int j = i+1; j < sz; j++){
+             if(arr[j] < arr[minIdx]){
+                 minIdx = j;
+             }
+         }
+         swap(arr[i], arr[minIdx]);
+     }
+}
+
+
+// insertion sort
+
+void insertionSort(int arr[], int sz){
+    for(int i = 1; i < sz; i++){
+        int key = arr[i];
+        int j = i-1;
+
+        while(j >= 0 and arr[j] > key){
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = key;
+    }
+}
 
 int main(void){
 
-    int arr[] = {5, 1, 4, 2,  8};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int arr[] = {3, 2, 1,  7, 6};
+    int sz = 5;
 
-    for(int i = 0; i < n - 1; i++){
-        bool swapped = false;
-        for(int j = 0; j < n-i-1; i++){
-            if(arr[j] > arr[j+1]){
-                swap(arr[j], arr[j+1]);
-                swapped = true;
-            }
-        }
-        if(swapped == false){
-            break;
-        }
+    bubbleSort(arr, sz);
+    for(int n : arr){
+        cout << n << " ";
     }
-
-    for(int i = 0; i < n; i++){
-        cout << arr[i] << " ";
+    cout << endl;  
+    
+    selectionSort(arr, sz);
+    for(int n : arr){
+        cout << n << " ";
     }
+    cout << endl;
+    
+    insertionSort(arr, sz);
+    for(int n : arr){
+        cout << n << " ";
+    }
+    cout << endl;
 
     return 0;
 }

@@ -47,27 +47,27 @@ void insertionSort(int arr[], int sz){
 }
 
 int main(void) {
-  // for bubble sort
+
   int arr[] = {3, 2, 1, 7, 6};
   int sz = 5;
 
   bubbleSort(arr, sz);
 
-  for (int sz : arr) {
-    cout << sz << " ";
+  for (int n : arr) {
+    cout << n << " ";
   }
   cout << endl;
   
   selectionSort(arr, sz);
   
-  for (int sz : arr) {
-    cout << sz << " ";
+  for (int n : arr) {
+    cout << n << " ";
   }
   cout << endl;
   
   insertionSort(arr, sz);
-  for (int sz : arr) {
-    cout << sz << " ";
+  for (int n : arr) {
+    cout << n << " ";
   }
   cout << endl;
   return 0;
