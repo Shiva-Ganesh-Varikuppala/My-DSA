@@ -69,52 +69,97 @@ Steps:
 - process it 
 - push unvisited neighbours
 */
+
+// =========================================================================================================
+
 // CODE: 
+/* 
+Example graph:
+                 0
+                / \
+               1    2
+              / \     \
+              3  4     5
+*/
+/* 
+lets start from node '0':
+- first visit 0
+- then all neighbours of 0
+- then next level neighbors
+*/
+
+
 #include<iostream>
 #include<vector>
 #include<queue>
 using namespace std;
 
-void bfs(int start, vector<vector<int>>& graph){
-    int n = graph.size();
+void bfs(vector<vector<int>> &graph, int start, int n){
+
+    // visited array to track visited nodes
     vector<bool> visited(n, false);
+    
+    // queue for bfs traversal
     queue<int> q;
 
+    // pushing starting node
     q.push(start);
+
+    // mark start node as visited
     visited[start] = true;
 
-    cout << "BFS Traversal: ";
-
+    // run until queue becomes empty
     while(!q.empty()){
+
+        // get front node
         int node = q.front();
+
+        // remove front node
         q.pop();
 
+        // print current node
         cout << node << " ";
 
+        // traversal all neighbours
         for(int neighbour : graph[node]){
+
+            // if neighbour not visited
             if(!visited[neighbour]){
+
+                // mark visited 
                 visited[neighbour] = true;
+
+                // push into queue
                 q.push(neighbour);
             }
         }
     }
-
-    cout << endl;
 }
 
 int main(){
     int n = 6;
 
+    // adjacency list
     vector<vector<int>> graph(n);
 
-    graph[0] = {1, 2};
-    graph[1] = {0, 3, 4};
-    graph[2] = {0, 5};
-    graph[3] = {1};
-    graph[4] = {1};
-    graph[5] = {2};
+    graph[0].push_back(1);
+    graph[0].push_back(2);
 
-    bfs(0, graph);
+    graph[1].push_back(3);
+    graph[1].push_back(4);
+    graph[1].push_back(0);
+    
+    graph[2].push_back(5);
+    graph[2].push_back(0);
+    
+    graph[3].push_back(1);
+    
+    graph[4].push_back(1);
+    
+    graph[5].push_back(2);
+
+    bfs(graph, 0, n);
 
     return 0;
+
 }
