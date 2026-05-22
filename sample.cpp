@@ -1,70 +1,108 @@
 #include<iostream>
-#include <utility>
+#include<vector>
 using namespace std;
 
-// bubble sort
 
-void bubbleSort(int arr[], int sz) {
-  for (int i = 0; i < sz - 1; i++) {
-    for (int j = 0; j < sz - 1 - i; j++) {
-      if (arr[j] > arr[j + 1]) {
-        swap(arr[j], arr[j + 1]);
-      }
-    }
-  }
-}
+int main(){
 
+     /*
+     Actual Graph: 
 
-// selection sort
-                
-void selectionSort(int arr[], int sz){
-    for(int i = 0; i < sz-1; i++){
-         int minIdx = i;
-         for(int j = i+1; j < sz; j++){
-             if(arr[j] < arr[minIdx]){
-                 minIdx = j;
-             }
-         }
-         swap(arr[i], arr[minIdx]);
-     }
-}
+            0
+           / \
+          1   2
+         / \   \
+        3---4---5
+    */
 
-
-// insertion sort
-
-void insertionSort(int arr[], int sz){
-    for(int i = 1; i < sz; i++){
-        int key = arr[i];
-        int j = i-1;
-
-        while(j >= 0 and arr[j] > key){
-            arr[j+1] = arr[j];
-            j--;
-        }
-        arr[j+1] = key;
-    }
-}
-
-int main(void){
-
-    int arr[] = {3, 2, 1,  7, 6};
-    int sz = 5;
-
-    bubbleSort(arr, sz);
-    for(int n : arr){
-        cout << n << " ";
-    }
-    cout << endl;  
+    /* 
+    adjacency matrix:
+        0   1   2   3   4   5
+    0:  0   1   1   0   0   0
+    1:  1   0   0   1   1   0
+    2:  1   0   0   0   0   1
+    3:  0   1   0   0   1   0
+    4:  0   1   0   1   0   1
+    5:  0   0   1   0   1   0
+    */
     
-    selectionSort(arr, sz);
-    for(int n : arr){
-        cout << n << " ";
+    
+    int n = 6;   // no of nodes
+    int matrix[6][6] = {0};
+
+    matrix[0][1] = 1;
+    matrix[1][0] = 1;
+    
+    matrix[0][2] = 1;
+    matrix[2][0] = 1;
+    
+    matrix[3][1] = 1;
+    matrix[1][3] = 1;
+    
+    matrix[4][1] = 1;
+    matrix[1][4] = 1;
+
+    matrix[4][3] = 1;
+    matrix[3][4] = 1;
+    
+    matrix[4][5] = 1;
+    matrix[5][4] = 1;
+    
+    matrix[5][2] = 1;
+    matrix[2][5] = 1;
+
+    // priting
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
     }
     cout << endl;
+
+
+    // adjacency list representation
     
-    insertionSort(arr, sz);
-    for(int n : arr){
-        cout << n << " ";
+    /* 
+    0:  1   2
+    1:  0   3   4
+    2:  0   5
+    3:  1   4
+    4:  1   3   5
+    5:  2   4
+    */
+    
+    int m = 6;
+    vector<vector<int>> adjList(m);
+
+    adjList[0].push_back(1);
+    adjList[0].push_back(2);
+
+    adjList[1].push_back(0);
+    adjList[1].push_back(3);
+    adjList[1].push_back(4);
+    
+    adjList[2].push_back(0);
+    adjList[2].push_back(5);
+    
+    adjList[3].push_back(1);
+    adjList[3].push_back(4);
+
+    adjList[4].push_back(1);
+    adjList[4].push_back(3);
+    adjList[4].push_back(5);
+
+    adjList[5].push_back(2);
+    adjList[5].push_back(4);
+
+
+    for(int i = 0; i < m; i++){
+        cout << i << " : ";
+
+        for(int neighbour : adjList[i]){
+            cout << neighbour << " ";
+        }
+        cout << endl;
     }
     cout << endl;
 

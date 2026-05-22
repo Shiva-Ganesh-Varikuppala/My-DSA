@@ -83,7 +83,7 @@ int main(void) {
 
   // adjacency matrix representation of a graph
 
-  int n = 4;
+  int n = 4;    // no of nodes
 
   int matrix[4][4] = {0};
 
