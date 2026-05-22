@@ -20,3 +20,6 @@ int main(void) {
 
   return 0;
 }
+
+// TC: O(n)
+// SC: O(1)

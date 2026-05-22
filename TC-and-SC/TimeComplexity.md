@@ -293,6 +293,9 @@ Most interview problems use:
 Worst Case Complexity
 ```
 
+We usually focus on worst-case time complexity because it gives the maximum time an alogrithm can
+take for any input size of n.
+
 ---
 
 # Examples of Cases

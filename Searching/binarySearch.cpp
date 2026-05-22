@@ -33,3 +33,8 @@ int main(void){
 
     return 0;
 }
+
+
+// TC: O(log n)
+// SC: O(1)
+// and look in the recursion folder for recursive based binary search 
