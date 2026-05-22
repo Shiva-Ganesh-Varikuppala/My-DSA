@@ -1,4 +1,3 @@
-
 # Sorting Algorithms Notes
 
 ## Introduction to Sorting
@@ -304,6 +303,25 @@ int main() {
 
 ---
 
+# Comparison Table (Bubble vs Selection)
+
+| Feature | Bubble Sort | Selection Sort |
+|---|---|---|
+| Basic Idea | Swap adjacent elements | Select minimum element |
+| Best Time | O(n) | O(n²) |
+| Average Time | O(n²) | O(n²) |
+| Worst Time | O(n²) | O(n²) |
+| Space Complexity | O(1) | O(1) |
+| Stable | Yes | No |
+| Adaptive | Yes | No |
+| Swaps | More | Less |
+| In-Place | Yes | Yes |
+| Usage | Small datasets | When swaps are costly |
+
+---
+
+---
+
 # Insertion Sort
 
 ## Basic Idea
@@ -391,6 +409,25 @@ int main() {
 ## Disadvantages
 
 - Slow for large data
+
+---
+
+# Comparison Table (Bubble vs Selection vs Insertion)
+
+| Feature | Bubble Sort | Selection Sort | Insertion Sort |
+|---|---|---|---|
+| Basic Idea | Adjacent swapping | Minimum selection | Insert at correct position |
+| Best Time | O(n) | O(n²) | O(n) |
+| Average Time | O(n²) | O(n²) | O(n²) |
+| Worst Time | O(n²) | O(n²) | O(n²) |
+| Space Complexity | O(1) | O(1) | O(1) |
+| Stable | Yes | No | Yes |
+| Adaptive | Yes | No | Yes |
+| Swaps/Shifts | Many swaps | Few swaps | Shifting elements |
+| In-Place | Yes | Yes | Yes |
+| Best Use Case | Very small datasets | Less memory writes | Nearly sorted arrays |
+
+---
 
 ---
 
@@ -655,6 +692,26 @@ Already sorted array with bad pivot selection.
 - Worst case O(n²)
 - Recursive calls
 - Unstable
+
+---
+
+# Comparison Table (Merge Sort vs Quick Sort)
+
+| Feature | Merge Sort | Quick Sort |
+|---|---|---|
+| Technique | Divide and Conquer | Divide and Conquer |
+| Basic Idea | Divide and merge | Pivot partitioning |
+| Best Time | O(n log n) | O(n log n) |
+| Average Time | O(n log n) | O(n log n) |
+| Worst Time | O(n log n) | O(n²) |
+| Space Complexity | O(n) | O(log n) |
+| Stable | Yes | No |
+| In-Place | No | Yes |
+| Speed in Practice | Moderate | Very Fast |
+| Worst Case Guarantee | Yes | No |
+| Best Use Case | Stable sorting | Fast practical sorting |
+
+---
 
 ---
 
