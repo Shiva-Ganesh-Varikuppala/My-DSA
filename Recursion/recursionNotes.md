@@ -4,7 +4,7 @@
 
 ## What is Recursion?
 
-Recursion is a programming technique where a function calls itself.
+Recursion is a programming technique where a function calls itself to the smaller version of it.
 
 A recursive function solves a problem by:
 
