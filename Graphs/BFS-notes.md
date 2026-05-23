@@ -1,5 +1,3 @@
-
-
 # Breadth First Search (BFS)
 
 # Introduction
@@ -65,14 +63,17 @@ FIFO (First In First Out)
 # Important Components
 
 ## 1. Queue
+
 Stores nodes to visit.
 
 ---
 
 ## 2. Visited Array
+
 Prevents revisiting nodes.
 
 Without visited array:
+
 - infinite loop may occur
 - repeated traversal may happen
 
@@ -297,6 +298,7 @@ Where:
 - E = Edges
 
 Reason:
+
 - every node visited once
 - every edge checked once
 
@@ -307,6 +309,7 @@ Reason:
 genui{"math_block_widget_always_prefetch_v2":{"content":"O(V)"}}
 
 Used by:
+
 - queue
 - visited array
 
@@ -358,10 +361,10 @@ Google crawling pages.
 
 # BFS Using Matrix vs List
 
-| Representation | Complexity |
-|---|---|
-| Adjacency Matrix | O(V²) |
-| Adjacency List | O(V + E) |
+| Representation   | Complexity |
+| ---------------- | ---------- |
+| Adjacency Matrix | O(V²)      |
+| Adjacency List   | O(V + E)   |
 
 Adjacency list is preferred.
 
@@ -404,6 +407,7 @@ q.push(neighbor);
 ```
 
 Reason:
+
 - avoids duplicate insertions.
 
 ---
@@ -433,14 +437,181 @@ for(int i = 0; i < n; i++){
 
 ---
 
-# Difference Between BFS and DFS
+# Detailed Comparison Between BFS and DFS Traversals
 
-| Feature | BFS | DFS |
-|---|---|---|
-| Data Structure | Queue | Stack/Recursion |
-| Traversal | Level-wise | Depth-wise |
-| Shortest Path | Yes | No |
-| Memory | More | Less |
+## Comprehensive Comparison Table
+
+| Aspect                   | BFS (Breadth First Search)                    | DFS (Depth First Search)                          |
+| ------------------------ | --------------------------------------------- | ------------------------------------------------- |
+| **Data Structure**       | Queue (FIFO)                                  | Stack (LIFO) or Recursion                         |
+| **Traversal Order**      | Level-wise (explores all neighbors first)     | Depth-wise (goes as deep as possible)             |
+| **Exploration Pattern**  | Explores nodes layer by layer                 | Explores nodes along a single path until dead end |
+| **Shortest Path**        | Guarantees shortest path in unweighted graphs | Does NOT guarantee shortest path                  |
+| **Memory Usage**         | More (stores all nodes at current level)      | Less (stores only nodes in current path)          |
+| **Time Complexity**      | O(V + E)                                      | O(V + E)                                          |
+| **Space Complexity**     | O(V) - worst case all nodes in queue          | O(h) - where h is height of tree/depth            |
+| **Optimal For**          | Shortest path, level-order traversal          | Topological sort, cycle detection, backtracking   |
+| **Implementation**       | Iterative (using queue)                       | Recursive or Iterative (using stack)              |
+| **Backtracking**         | Not naturally suited                          | Naturally suited                                  |
+| **All Paths Finding**    | Not suitable                                  | Suitable                                          |
+| **Cycle Detection**      | Yes                                           | Yes                                               |
+| **Connected Components** | Yes                                           | Yes                                               |
+
+---
+
+## Visual Example: BFS vs DFS
+
+### Graph Example
+
+```text
+        0
+      /   \
+     1     2
+    / \     \
+   3   4     5
+```
+
+### BFS Traversal
+
+```text
+Order of Exploration: 0 → 1 → 2 → 3 → 4 → 5
+
+Queue state:
+Step 1: [0] (visit 0, add neighbors)
+Step 2: [1, 2] (visit 1, add neighbors)
+Step 3: [2, 3, 4] (visit 2, add neighbors)
+Step 4: [3, 4, 5] (visit 3, no new neighbors)
+Step 5: [4, 5] (visit 4, no new neighbors)
+Step 6: [5] (visit 5, no new neighbors)
+```
+
+### DFS Traversal
+
+```text
+Order of Exploration: 0 → 1 → 3 → 4 → 2 → 5
+
+Stack state:
+Step 1: [0] (visit 0, add neighbors)
+Step 2: [1, 2] (visit 1, add neighbors - goes deep)
+Step 3: [3, 4, 2] (visit 3, no more neighbors)
+Step 4: [4, 2] (backtrack to 1, visit 4)
+Step 5: [2] (backtrack to 0, visit 2)
+Step 6: [5] (visit 5, no neighbors)
+```
+
+---
+
+## Use Case Comparison
+
+### When to Use BFS
+
+1. **Finding Shortest Path** in unweighted graphs
+2. **Level-order Traversal** in trees
+3. **Social Network Analysis** (finding friends at distance k)
+4. **GPS Navigation** and route planning
+5. **Web Crawler** - exploring pages level by level
+6. **Broadcasting** in networks
+7. **Bipartite Graph Detection**
+8. **Connected Components** in unweighted context
+
+### When to Use DFS
+
+1. **Topological Sorting** (for DAGs)
+2. **Cycle Detection** in directed graphs
+3. **Strongly Connected Components** (Kosaraju's/Tarjan's algorithm)
+4. **Backtracking Problems** (N-Queens, Sudoku solver, permutations)
+5. **Detecting All Paths** between two nodes
+6. **Maze Solving** with backtracking
+7. **Tree Traversals** (Preorder, Inorder, Postorder)
+8. **Connected Components** counting
+
+---
+
+## Time & Space Complexity Analysis
+
+### Time Complexity Breakdown
+
+| Operation            | BFS          | DFS          |
+| -------------------- | ------------ | ------------ |
+| Visiting each vertex | O(V)         | O(V)         |
+| Checking each edge   | O(E)         | O(E)         |
+| **Total**            | **O(V + E)** | **O(V + E)** |
+
+### Space Complexity Breakdown
+
+| Scenario                 | BFS                      | DFS                      |
+| ------------------------ | ------------------------ | ------------------------ |
+| **Balanced Binary Tree** | O(n/2) = O(n) worst case | O(log n) average         |
+| **Skewed Tree**          | O(1) best case           | O(n) worst case          |
+| **Graph (Dense)**        | O(V)                     | O(V) for recursion stack |
+| **Graph (Sparse)**       | O(V)                     | O(V) for recursion stack |
+
+---
+
+## Code Comparison
+
+### BFS Implementation (Iterative)
+
+```cpp
+void bfs(vector<vector<int>> &graph, int start, int n) {
+    vector<bool> visited(n, false);
+    queue<int> q;
+
+    q.push(start);
+    visited[start] = true;
+
+    while(!q.empty()) {
+        int node = q.front();
+        q.pop();
+        cout << node << " ";
+
+        for(int neighbor : graph[node]) {
+            if(!visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
+        }
+    }
+}
+```
+
+### DFS Implementation (Recursive)
+
+```cpp
+void dfs(vector<vector<int>> &graph, int node, vector<bool> &visited) {
+    visited[node] = true;
+    cout << node << " ";
+
+    for(int neighbor : graph[node]) {
+        if(!visited[neighbor]) {
+            dfs(graph, neighbor, visited);
+        }
+    }
+}
+```
+
+---
+
+## Key Differences Summary
+
+| Point                | BFS                                       | DFS                                             |
+| -------------------- | ----------------------------------------- | ----------------------------------------------- |
+| **Core Concept**     | Explore all neighbors before going deeper | Go as deep as possible before backtracking      |
+| **Guarantee**        | Shortest path in unweighted graphs        | Explores all paths, explores one path fully     |
+| **Best For**         | Shortest path problems                    | Exploring all solutions, backtracking           |
+| **Implementation**   | Easy to understand, iterative             | Can be recursive or iterative                   |
+| **Typical Problems** | Shortest path, level traversal            | Topological sort, permutations, cycle detection |
+
+---
+
+## Difference Between BFS and DFS
+
+| Feature        | BFS        | DFS             |
+| -------------- | ---------- | --------------- |
+| Data Structure | Queue      | Stack/Recursion |
+| Traversal      | Level-wise | Depth-wise      |
+| Shortest Path  | Yes        | No              |
+| Memory         | More       | Less            |
 
 ---
 
@@ -479,10 +650,10 @@ DFS is naturally recursive.
 
 ## Complexity
 
-| Type | Complexity |
-|---|---|
-| Time | O(V + E) |
-| Space | O(V) |
+| Type  | Complexity |
+| ----- | ---------- |
+| Time  | O(V + E)   |
+| Space | O(V)       |
 
 ---
 

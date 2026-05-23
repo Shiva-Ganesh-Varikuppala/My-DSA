@@ -1,74 +1,43 @@
-#include <algorithm>
-#include <iostream>
+#include<iostream>
+#include <utility>
+#include<vector>
 using namespace std;
 
-// ALL SORTING ALGORITHMS
+int partition(vector<int> &arr, int st, int end){
 
-// 1. bubble sort
-void bubbleSort(int arr[], int sz) {
-  for (int i = 0; i < sz - 1; i++) {
-    for (int j = 0; j < sz - 1 - i; j++) {
-      if (arr[j] > arr[j + 1]) {
-        swap(arr[j], arr[j + 1]);
-      }
-    }
+  int pivot = arr[end];
+  int idx = st - 1;
+
+  for(int j = st; j < end; j++){
+	if(arr[j] <= pivot){
+		idx++;
+		swap(arr[idx], arr[j]);
+	}
   }
+
+  swap(arr[idx+1], arr[end]);
+
+  return idx+1;
 }
 
-// look at the optimised part after done
+void quicSort(vector<int> &arr, int st, int end){
+	if(st < end){
+		int pivIdx = partition(arr, st, end);
 
-
-// 2. selection sort
-void selectionSort(int arr[], int sz){
-    for(int i = 0; i < sz - 1; i++){
-      int minIdx = i;
-      for(int j = i + 1; j < sz; j++){
-        if(arr[j] < arr[minIdx]){
-          minIdx = j;
-        }
-      }
-      swap(arr[i], arr[minIdx]);
-    }
+		quicSort(arr, st, pivIdx-1);
+		quicSort(arr, pivIdx + 1, end);
+	}
 }
 
 
-// insertion sort
-void insertionSort(int arr[], int sz){
-    for(int i = 1; i < sz; i++){
-      int key = arr[i];
-      int j = i - 1;
+int main(){
+	vector<int> arr = {5, 3, 2, 6};
+	quicSort(arr, 0, arr.size()-1);
+	
+	for(int val : arr){
+		cout << val << " ";
+	}
+	cout << endl;
 
-      while(j >= 0 and arr[j] > key){
-        arr[j+1] = arr[j];
-        j--;
-      }
-      arr[j+1] = key;
-    }
-}
-
-int main(void) {
-
-  int arr[] = {3, 2, 1, 7, 6};
-  int sz = 5;
-
-  bubbleSort(arr, sz);
-
-  for (int n : arr) {
-    cout << n << " ";
-  }
-  cout << endl;
-  
-  selectionSort(arr, sz);
-  
-  for (int n : arr) {
-    cout << n << " ";
-  }
-  cout << endl;
-  
-  insertionSort(arr, sz);
-  for (int n : arr) {
-    cout << n << " ";
-  }
-  cout << endl;
-  return 0;
+	return 0;
 }
