@@ -7,9 +7,8 @@ void merge(vector<int> &arr, int st, int mid, int end){
     int i = st, j = mid + 1;
     while(i <= mid && j <= end){
 
-        // i - mid is left half (one part)
-        // j - end is right half (another part)
-
+        // "i - mid" is left half (one part)
+        // "j - end" is right half (another part)  
         if(arr[i] <= arr[j]){
             temp.push_back(arr[i]);
             i++;
@@ -18,7 +17,6 @@ void merge(vector<int> &arr, int st, int mid, int end){
             j++;
         }
     }
-
     while(i <= mid){    // for left half for the remaining elements
         temp.push_back(arr[i]);
         i++;

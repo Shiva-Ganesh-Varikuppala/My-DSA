@@ -40,7 +40,7 @@ public:
         if(head == NULL){               // checks if the head is NULL that means no elements are there in the LL at present
             head = tail = newNode;       // if yes then assigns it to a newNode that is our value and returns nothing
             return;
-        } else {                   // if any element is already existed in the LL then head wiil be assign the new value so 
+        } else {                   // if any element is already existed in the LL then head wiil be assign the new value 
                                    // so that the first element is now becomea the head
             newNode->next = head;
             head = newNode;
