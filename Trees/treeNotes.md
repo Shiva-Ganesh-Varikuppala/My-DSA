@@ -503,6 +503,7 @@ Apply segment tree on heavy paths for updates and queries.
 - Construct tree from traversals
 
 ### Common Mistakes
+
 - Confusing height and depth
 - Not handling null nodes in recursion
 - Misunderstanding tree properties
